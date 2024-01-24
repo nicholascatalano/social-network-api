@@ -32,3 +32,8 @@ const thoughtSchema = new Schema(
 userSchema.virtual("reactionCount").get(function () {
   return this.reactions.length;
 });
+
+// Initialize Thought model
+const Thought = model("Thought", thoughtSchema);
+
+module.exports = Thought;
