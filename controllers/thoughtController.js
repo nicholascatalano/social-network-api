@@ -108,5 +108,26 @@ module.exports = {
       return res.status(500).json(err);
     }
   },
+
   // DELETE a reaction by the reaction's reactionId value
+  async deleteReaction(req, res) {
+    try {
+      const reaction = await Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $pull: { reactions: { _id: req.params.reactionId } } },
+        { runValidators: true, new: true }
+      );
+
+      if (!reaction) {
+        return res
+          .status(404)
+          .json({ message: "Thought or reaction ID incorrect" });
+      }
+
+      return res.status(200).json(reaction);
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+  },
 };
