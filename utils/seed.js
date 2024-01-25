@@ -9,11 +9,8 @@ const users = [
   {
     username: "User",
     email: "user@gmail.com",
-    thought: [],
   },
 ];
-
-console.log(connection);
 
 // Connects to server
 connection.once("open", async () => {
