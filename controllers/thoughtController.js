@@ -70,7 +70,24 @@ module.exports = {
   },
 
   // DELETE a thought by its _id
-  
+  async deleteThought(req, res) {
+    try {
+      const thought = await Thought.findOneAndDelete({
+        _id: req.params.thoughtId,
+      });
+
+      if (!thought) {
+        return res.status(404).json({ message: "No thought with that ID" });
+      }
+
+      return res.status(200).json({
+        message: "Thought and reactions successfully deleted",
+      });
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+  },
   // Create a reaction stored in a single thought's reactions array field
   // DELETE a reaction by the reaction's reactionId value
 };
