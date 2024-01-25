@@ -5,10 +5,11 @@ const router = require("express").Router();
 const {
   getThoughts,
   getThought,
+  createThought,
 } = require("../../controllers/thoughtController");
 
 // Route -> http://localhost:3001/api/thoughts
-router.route("/").get(getThoughts);
+router.route("/").get(getThoughts).post(createThought);
 
 // Route -> http://localhost:3001/api/thoughts/:thoughtId
 router.route("/:thoughtId").get(getThought);
