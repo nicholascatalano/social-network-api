@@ -49,7 +49,7 @@ module.exports = {
     }
   },
 
-  // Update a thought by its _id
+  // Update a thought by its id
   async updateThought(req, res) {
     try {
       const thought = await Thought.findOneAndUpdate(
@@ -69,7 +69,7 @@ module.exports = {
     }
   },
 
-  // DELETE a thought by its _id
+  // DELETE a thought by its id
   async deleteThought(req, res) {
     try {
       const thought = await Thought.findOneAndDelete({
@@ -88,6 +88,25 @@ module.exports = {
       return res.status(500).json(err);
     }
   },
+
   // Create a reaction stored in a single thought's reactions array field
+  async addReaction(req, res) {
+    try {
+      const reaction = await Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $addToSet: { reactions: req.body } },
+        { runValidators: true }
+      );
+
+      if (!reaction) {
+        return res.status(404).json({ message: "No thought with that ID" });
+      }
+
+      return res.status(200).json(reaction);
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+  },
   // DELETE a reaction by the reaction's reactionId value
 };
