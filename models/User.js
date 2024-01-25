@@ -13,10 +13,7 @@ const userSchema = new Schema(
       type: String,
       unique: true,
       required: true,
-      match: [
-        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-        "Enter a valid email address.",
-      ], // regex to check for valid email pulled from online
+      match: [/.+@.+\..+/, "Enter a valid email address."], // regex to check for valid email pulled from google
     },
     thoughts: [
       {
