@@ -11,7 +11,25 @@ module.exports = {
       return res.status(500).json(err);
     }
   },
+
   // GET single though by its _id
+  async getThought(req, res) {
+    try {
+      const thought = await Thought.findOne({ _id: req.params.userId })
+
+        .select("-__v")
+        .populate("reactions");
+
+      if (!thought) {
+        return res.status(404).json({ message: "No thought with that ID" });
+      }
+
+      return res.status(200).json(user);
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+  },
   // POST to create a new thought
   // PUT to update a thought by its _id
   // DELETE to remove a thought by its _id
