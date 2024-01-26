@@ -9,10 +9,7 @@
 - [Usage](#usage)
 - [License](#license)
 - [Image](#image)
-- [Contributing](#contributing)
-- [Tests](#tests)
 - [Questions](#questions)
-- [Credits](#credits)
 
 ## Description
 
