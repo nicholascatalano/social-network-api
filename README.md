@@ -9,10 +9,7 @@
 - [Usage](#usage)
 - [License](#license)
 - [Image](#image)
-- [Contributing](#contributing)
-- [Tests](#tests)
 - [Questions](#questions)
-- [Credits](#credits)
 
 ## Description
 
@@ -24,7 +21,7 @@ To install, first clone the repo to your local computer. Right click on the pack
 
 ## Usage
 
-Please follow this youtube link for a walkthrough video.
+Please follow this youtube link for a walkthrough video: https://youtu.be/nzIhcx0bL9k
 
 ## License
 
@@ -33,6 +30,8 @@ This project is licensed under the [MIT](https://opensource.org/licenses/MIT) li
 ## Image
 
 Here is an image of the application being tested through Insomnia Core.
+
+![M0wrOOy](https://github.com/nicholascatalano/social-network-api/assets/149517751/813fc9f4-f652-49ac-84c0-dc23061630c0)
 
 ## Questions
 
